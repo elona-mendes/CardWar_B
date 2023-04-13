@@ -20,6 +20,21 @@ Player::Player(string n) {
     this->winPoints = 0;
 }
 
+string* Player::getDeck(){
+    return this->deck;
+}
+
+void Player::setDeck(string& value, int index){
+    this->deck[index] = value;
+}
+
+void Player::setstksize(int n){
+    this->stksize = n;
+}
+
+void Player::setwinPoints(int p){
+    this->winPoints = this->winPoints+p;
+}
 int Player::stacksize(){
     return this->stksize;
 }

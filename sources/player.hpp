@@ -20,19 +20,14 @@ namespace ariel {
         public:
             string getName();
 
-            void setstksize(int n){
-                stksize = n;
-            }
-            void setwinPoints(int p){
-                winPoints = winPoints+p;
-            }
-            string* getDeck(){
-                return deck;
-            }
+            string* getDeck();
 
-            void setDeck(string& value, int index){
-                deck[index] = value;
-            }
+            void setstksize(int n);
+
+            void setwinPoints(int p);
+
+            void setDeck(string& value, int index);
+
             // Constructors:
             Player() ;
 

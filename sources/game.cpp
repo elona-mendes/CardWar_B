@@ -81,7 +81,7 @@ string strCard(string tplyer){
     return card;
 }
 
-int Game::printLastTurn(){     
+int Game::printLastTurn(){
     // Accessing last element
     int s = this->turns.size();
     if(s < 1){
@@ -92,7 +92,7 @@ int Game::printLastTurn(){
 }
 
 void Game::playTurn(){
-    //check if the player is the same
+    //Check if the players are the same one.
     if(&p1 == &p2){
         throw std::runtime_error("Error: Player cannot play with himself.");
     }
@@ -156,8 +156,7 @@ void Game::playTurn(){
         }   
     }
 
-    //If we stopped the turn because we ran out of cards, 
-    //give each player the points of his cards back
+    //If we stopped the turn because we ran out of cards, give each player the points of his cards back
     if(winflag == 0){
         this->p1.setwinPoints(totalPoints/2);
         this->p2.setwinPoints(totalPoints/2);
