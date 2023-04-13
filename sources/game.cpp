@@ -7,11 +7,6 @@
 using namespace std;
 using namespace ariel;      
             
-            
-Player Game::getp1() { return this->p1;  }
-Player Game::getp2() { return this->p2;  } 
-
-std::string to_string();
 
 // Constructors:
 Game::Game(Player& pl1, Player& pl2) : p1(pl1), p2(pl2){
@@ -25,14 +20,16 @@ Game::Game(Player& pl1, Player& pl2) : p1(pl1), p2(pl2){
     this->shflDeck = deck.deckShuffling();
 
     int p1Index = 0, p2Index = 0;
-    for (int i = 0; i < 52; i++) {
-        if (i % 2 == 0) {
-            this->p1.setDeck(this->shflDeck[i], p1Index);
+    int idx = 0;
+    for (auto i : this->shflDeck){
+        if (idx % 2 == 0) {
+            this->p1.setDeck(i, p1Index);
             p1Index = p1Index + 1;
         } else {
-            this->p2.setDeck(this->shflDeck[i], p2Index);
+            this->p2.setDeck(i, p2Index);
             p2Index = p2Index + 1;
         }
+        idx += 1;
     }
 }
 
@@ -59,7 +56,6 @@ string strCard(string tplyer){
     else{
         throw std::runtime_error("Error: Symbol error.");
     }
-
     string cardVal;
     //Turns the number representer into the symbol name.
     if (number.length()>1){
@@ -146,7 +142,7 @@ void Game::playTurn(){
             totalTurn = totalTurn + " " + this->p2.getName() + " wins.";
             winflag = 1;
         }
-        //teko
+        //Draw
         else{
             this->drawAmount = this->drawAmount+1;
             if(this->p1.stacksize()>0){
@@ -204,8 +200,7 @@ int Game::printLog(){
 
 int Game::printStats(){
     // for each player prints basic statistics: win rate, cards won, <other stats you want to print>.
-    // Also print the draw rate and amount of draws that happand. 
-    //(draw within a draw counts as 2 draws. )
+    // Also print the draw rate and amount of draws that happand. (draw within a draw counts as 2 draws. )
     int cardPlayed = 26 - this->p1.stacksize();
 
     double p1cardsWon = this->p1.cardesTaken()/2;

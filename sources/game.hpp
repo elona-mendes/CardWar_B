@@ -7,33 +7,22 @@ using namespace std;
 
 namespace ariel {
     class Game{
-        private:    // Not required. All is private by default.
+        private: 
             Player& p1;
             Player& p2;
-            // array<string, 52> shflDeck;
-            string* shflDeck;
+            static const int TOTAL_DECK_SIZE = 52;
+            array<string, TOTAL_DECK_SIZE> shflDeck;
             Card deck;
             vector<string> turns;
             int pointerdeck; 
             int drawAmount;
 
         public:
-            // methods defined inline:
-            Player getp1();
-            Player getp2();
 
-            std::string to_string();
-
-            // // Constructors:
+            // Constructors:
             Game();
-
-            // ~Game(){
-            //     // return;
-            // }
             
             Game(Player& pl1, Player& pl2);
-
-            // string strCard(string tplyer);
 
             void playTurn();
 

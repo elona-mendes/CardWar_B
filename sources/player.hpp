@@ -3,7 +3,6 @@
 #include <vector>
 #include "card.hpp"
 
-// // some_header_file.h
 #ifndef Player_H
 #define Player_H
 
@@ -14,8 +13,8 @@ namespace ariel {
         private:  
             string name;
             int stksize;
-            // string deck[26]; 
-            string* deck = new string[26];
+            static const int DECK_SIZE = 26;
+            string* deck = new string[DECK_SIZE];
             int winPoints;
 
         public:
@@ -34,28 +33,10 @@ namespace ariel {
             void setDeck(string& value, int index){
                 deck[index] = value;
             }
-            // // Constructors:
+            // Constructors:
             Player() ;
-            //{
-            //     std::cout << "Player()" << std::endl; 
-            //     name = "None";
-            //     stksize = 26;
-            //     tken = 0;
-            //     sumpoint = 0;
-            //     crd = 1;
-            // }
+
             Player(string n) ;
-            // { 
-            //     std::cout << "Player(string)" << std::endl; 
-            //     name =  n; 
-            //     stksize = 26;
-            //     tken = 0;
-            //     sumpoint = 0;
-            //     // crd = Card();
-            // }
-            // ~Player(){
-            //     return;
-            // }
 
             int stacksize();
 
@@ -63,5 +44,4 @@ namespace ariel {
     };
 }
 
-// // your code
 #endif

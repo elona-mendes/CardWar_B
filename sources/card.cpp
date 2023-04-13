@@ -3,37 +3,15 @@
 #include <iostream>
 #include "card.hpp"
 
-// some_header_file.h
-// #ifndef CARD_H
-// #define CARD_H
-
 using namespace std;
 using namespace ariel;
 
-// array<string, 52> Card::deckShuffling(){
-//     // Shuffle deck
-//     srand(time(0));
-//     for (int i = 0; i < 52; i++) {
-//         int j = rand() % 52;
-//         string temp = this->deck1[i];
-//         this->deck1[i] = this->deck1[j];
-//         this->deck1[j] = temp;
-//     }
-//     return this->deck1;
-// }
+array<string, 52> Card::deckShuffling(){
 
-
-string* Card::deckShuffling(){
+    std::random_device rd;
+    std::mt19937 g(rd());
     // Shuffle deck
-    srand(time(0));
-    for (int i = 0; i < 52; i++) {
-        int j = rand() % 52;
-        string temp = this->deck[i];
-        this->deck[i] = this->deck[j];
-        this->deck[j] = temp;
-    }
-    return this->deck;
-}
+    std::shuffle(this->deck1.begin(), this->deck1.end(), g);
 
-// your code
-// #endif
+    return this->deck1;
+}
