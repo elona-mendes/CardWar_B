@@ -24,8 +24,7 @@ namespace ariel {
                             "14S", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "11S", "12S", "13S"}};  
                             
         public:
-            // methods defined inline
-            // need to be change to numbers that cant randomly by choosen twise:
+            // Shuffling the deck
             array<string, TOTAL_DECK_SIZE> deckShuffling();
     };
 
