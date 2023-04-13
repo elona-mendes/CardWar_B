@@ -34,7 +34,6 @@ Game::Game(Player& pl1, Player& pl2) : p1(pl1), p2(pl2){
 }
 
 string strCard(string tplyer){
-
     //check valus
     string number = tplyer.substr(0, tplyer.length() - 1);
     //check symbols
@@ -82,8 +81,7 @@ string strCard(string tplyer){
     return card;
 }
 
-int Game::printLastTurn(){
-      
+int Game::printLastTurn(){     
     // Accessing last element
     int s = this->turns.size();
     if(s < 1){
@@ -94,7 +92,7 @@ int Game::printLastTurn(){
 }
 
 void Game::playTurn(){
-
+    //check if the player is the same
     if(&p1 == &p2){
         throw std::runtime_error("Error: Player cannot play with himself.");
     }
@@ -191,7 +189,6 @@ int Game::printWiner(){
 }
 
 int Game::printLog(){
-
     for (const std::string& s : this->turns) {
         std::cout << s << std::endl;
     }
