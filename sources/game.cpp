@@ -197,7 +197,7 @@ int Game::printLog(){
 int Game::printStats(){
     // for each player prints basic statistics: win rate, cards won, <other stats you want to print>.
     // Also print the draw rate and amount of draws that happand. (draw within a draw counts as 2 draws. )
-    int cardPlayed = 26 - this->p1.stacksize();
+    double cardPlayed = 26 - this->p1.stacksize();
 
     double p1cardsWon = this->p1.cardesTaken()/2;
     double p1winRate = (p1cardsWon/cardPlayed) * 100; 
